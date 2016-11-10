@@ -1,0 +1,1702 @@
+[
+    {
+        "name": "TESTE2 DESENV",
+        "children": [
+            {
+                "name": "Renda Fixa",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "FTM CRI SERIE 130",
+                                "size": 23938
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Compromissada",
+                        "children": [
+                            {
+                                "name": "COMP PÓS",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CPR",
+                "children": [
+                    {
+                        "name": "Contas pagar",
+                        "children": [
+                            {
+                                "name": "043",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "047",
+                                "size": 1939
+                            },
+                            {
+                                "name": "048",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "049",
+                                "size": 1939
+                            }
+                            ,
+                            {
+                                "name": "050",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "051",
+                                "size": 1939
+                            },
+                            {
+                                "name": "052",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "053",
+                                "size": 1939
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Contas receber",
+                        "children": [
+                            {
+                                "name": "044",
+                                "size": 4500
+                            }
+                            ,
+                            {
+                                "name": "040",
+                                "size": 4501
+                            }
+                            ,
+                            {
+                                "name": "048",
+                                "size": 4502
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Caixa",
+                "children": [
+                    {
+                        "name": "Pago",
+                        "children": [
+                            {
+                                "name": "045",
+                                "size": 7000
+                            }
+                            ,
+                            {
+                                "name": "015",
+                                "size": 9000
+                            }
+                            ,
+                            {
+                                "name": "025",
+                                "size": 8000
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Recebido",
+                        "children": [
+                            {
+                                "name": "046",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Renda Variável",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "ATMP1",
+                                "size": 721
+                            },
+                            {
+                                "name": "ATMP3 (1)",
+                                "size": 4294
+                            },
+                            {
+                                "name": "ATMP5",
+                                "size": 9800
+                            },
+                            {
+                                "name": "ATPR3",
+                                "size": 1314
+                            },
+                            {
+                                "name": "FTM DEPOSITO PN",
+                                "size": 2220
+                            },
+                            {
+                                "name": "FTM4 PN",
+                                "size": 2220.66
+                            },
+                            {
+                                "name": "FTM5",
+                                "size": 2220
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Opções",
+                        "children": [
+                            {
+                                "name": "AELP3OP AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "AELP3OP AMP2",
+                                "size": 4294
+                            },
+                            {
+                                "name": "EMBR3OP AMP",
+                                "size": 6800
+                            },
+                            {
+                                "name": "EMBR3OP AMP2",
+                                "size": 1314
+                            },
+                            {
+                                "name": "IBOV CAL A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV CAL A06",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A06",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Termo",
+                        "children": [
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 4294
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Empréstimo Ações",
+                        "children": [
+                            {
+                                "name": "Tomador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 721
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1b",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1c",
+                                        "size": 4294
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Doador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 7210
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATPR3",
+                                        "Cód.Mov.": "210",
+                                        "Corretora": "BRADESCO",
+                                        "DataMovimento": "06/01/2011",
+                                        "DataVencimento": "20/01/2011",
+                                        "QuantidadeEmpréstimo": 9100,
+                                        "QuantidadeProventos": 0,
+                                        "Preço": 26.72,
+                                        "ValordoEmpréstimo": 243152.00,
+                                        "%Remun.": "2.356 %",
+                                        "%Comissão": "1.256 %",
+                                        "ApropriaçãoRemun.": 0,
+                                        "ApropriaçãoComissão": 0,
+                                        "Rep.Liquid.": 0,
+                                        "Total": 0,
+                                        "ValordeMercado": 42151.00,
+                                        "size": 4294
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+    ,
+    {
+        "name": "Carteira Teste2",
+        "children": [
+            {
+                "name": "Renda Fixa",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "FTM CRI SERIE 130",
+                                "size": 54938
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Compromissada",
+                        "children": [
+                            {
+                                "name": "COMP PÓS",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CPR",
+                "children": [
+                    {
+                        "name": "Contas pagar",
+                        "children": [
+                            {
+                                "name": "043",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "047",
+                                "size": 1939
+                            },
+                            {
+                                "name": "048",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "049",
+                                "size": 1939
+                            }
+                            ,
+                            {
+                                "name": "050",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "051",
+                                "size": 1939
+                            },
+                            {
+                                "name": "052",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "053",
+                                "size": 1939
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Contas receber",
+                        "children": [
+                            {
+                                "name": "044",
+                                "size": 4500
+                            }
+                            ,
+                            {
+                                "name": "040",
+                                "size": 4501
+                            }
+                            ,
+                            {
+                                "name": "048",
+                                "size": 4502
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Caixa",
+                "children": [
+                    {
+                        "name": "Pago",
+                        "children": [
+                            {
+                                "name": "045",
+                                "size": 7000
+                            }
+                            ,
+                            {
+                                "name": "015",
+                                "size": 9000
+                            }
+                            ,
+                            {
+                                "name": "025",
+                                "size": 8000
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Recebido",
+                        "children": [
+                            {
+                                "name": "046",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Renda Variável",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "ATMP1",
+                                "size": 721
+                            },
+                            {
+                                "name": "ATMP3 (1)",
+                                "size": 4294
+                            },
+                            {
+                                "name": "ATMP5",
+                                "size": 9800
+                            },
+                            {
+                                "name": "ATPR3",
+                                "size": 1314
+                            },
+                            {
+                                "name": "FTM DEPOSITO PN",
+                                "size": 2220
+                            },
+                            {
+                                "name": "FTM4 PN",
+                                "size": 2220.66
+                            },
+                            {
+                                "name": "FTM5",
+                                "size": 2220
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Opções",
+                        "children": [
+                            {
+                                "name": "AELP3OP AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "AELP3OP AMP2",
+                                "size": 4294
+                            },
+                            {
+                                "name": "EMBR3OP AMP",
+                                "size": 9800
+                            },
+                            {
+                                "name": "EMBR3OP AMP2",
+                                "size": 1314
+                            },
+                            {
+                                "name": "IBOV CAL A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV CAL A06",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A06",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Termo",
+                        "children": [
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 4294
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Empréstimo Ações",
+                        "children": [
+                            {
+                                "name": "Tomador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 721
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1b",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1c",
+                                        "size": 4294
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Doador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 721
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATPR3",
+                                        "Cód.Mov.": "210",
+                                        "Corretora": "BRADESCO",
+                                        "DataMovimento": "06/01/2011",
+                                        "DataVencimento": "20/01/2011",
+                                        "QuantidadeEmpréstimo": 9100,
+                                        "QuantidadeProventos": 0,
+                                        "Preço": 26.72,
+                                        "ValordoEmpréstimo": 243152.00,
+                                        "%Remun.": "2.356 %",
+                                        "%Comissão": "1.256 %",
+                                        "ApropriaçãoRemun.": 0,
+                                        "ApropriaçãoComissão": 0,
+                                        "Rep.Liquid.": 0,
+                                        "Total": 0,
+                                        "ValordeMercado": 42151.00,
+                                        "size": 4294
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+    ,
+    {
+        "name": "Carteira Teste3",
+        "children": [
+            {
+                "name": "Renda Fixa",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "FTM CRI SERIE 130",
+                                "size": 23938
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Compromissada",
+                        "children": [
+                            {
+                                "name": "COMP PÓS",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CPR",
+                "children": [
+                    {
+                        "name": "Contas pagar",
+                        "children": [
+                            {
+                                "name": "043",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "047",
+                                "size": 1939
+                            },
+                            {
+                                "name": "048",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "049",
+                                "size": 1939
+                            }
+                            ,
+                            {
+                                "name": "050",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "051",
+                                "size": 1939
+                            },
+                            {
+                                "name": "052",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "053",
+                                "size": 1939
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Contas receber",
+                        "children": [
+                            {
+                                "name": "044",
+                                "size": 4500
+                            }
+                            ,
+                            {
+                                "name": "040",
+                                "size": 4501
+                            }
+                            ,
+                            {
+                                "name": "048",
+                                "size": 4502
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Caixa",
+                "children": [
+                    {
+                        "name": "Pago",
+                        "children": [
+                            {
+                                "name": "045",
+                                "size": 7000
+                            }
+                            ,
+                            {
+                                "name": "015",
+                                "size": 9000
+                            }
+                            ,
+                            {
+                                "name": "025",
+                                "size": 8000
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Recebido",
+                        "children": [
+                            {
+                                "name": "046",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Renda Variável",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "ATMP1",
+                                "size": 721
+                            },
+                            {
+                                "name": "ATMP3 (1)",
+                                "size": 4294
+                            },
+                            {
+                                "name": "ATMP5",
+                                "size": 9800
+                            },
+                            {
+                                "name": "ATPR3",
+                                "size": 1314
+                            },
+                            {
+                                "name": "FTM DEPOSITO PN",
+                                "size": 2220
+                            },
+                            {
+                                "name": "FTM4 PN",
+                                "size": 2220.66
+                            },
+                            {
+                                "name": "FTM5",
+                                "size": 2220
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 22200
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Opções",
+                        "children": [
+                            {
+                                "name": "AELP3OP AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "AELP3OP AMP2",
+                                "size": 4294
+                            },
+                            {
+                                "name": "EMBR3OP AMP",
+                                "size": 9800
+                            },
+                            {
+                                "name": "EMBR3OP AMP2",
+                                "size": 1314
+                            },
+                            {
+                                "name": "IBOV CAL A05",
+                                "size": 20220
+                            },
+                            {
+                                "name": "IBOV CAL A06",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A06",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Termo",
+                        "children": [
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 4294
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Empréstimo Ações",
+                        "children": [
+                            {
+                                "name": "Tomador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 721
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1b",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1c",
+                                        "size": 40294
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Doador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 7210
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATPR3",
+                                        "Cód.Mov.": "210",
+                                        "Corretora": "BRADESCO",
+                                        "DataMovimento": "06/01/2011",
+                                        "DataVencimento": "20/01/2011",
+                                        "QuantidadeEmpréstimo": 9100,
+                                        "QuantidadeProventos": 0,
+                                        "Preço": 26.72,
+                                        "ValordoEmpréstimo": 243152.00,
+                                        "%Remun.": "2.356 %",
+                                        "%Comissão": "1.256 %",
+                                        "ApropriaçãoRemun.": 0,
+                                        "ApropriaçãoComissão": 0,
+                                        "Rep.Liquid.": 0,
+                                        "Total": 0,
+                                        "ValordeMercado": 42151.00,
+                                        "size": 4294
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+    ,
+    {
+        "name": "Carteira Teste4",
+        "children": [
+            {
+                "name": "Renda Fixa",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "FTM CRI SERIE 130",
+                                "size": 23938
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Compromissada",
+                        "children": [
+                            {
+                                "name": "COMP PÓS",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CPR",
+                "children": [
+                    {
+                        "name": "Contas pagar",
+                        "children": [
+                            {
+                                "name": "043",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "047",
+                                "size": 1939
+                            },
+                            {
+                                "name": "048",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "049",
+                                "size": 1939
+                            }
+                            ,
+                            {
+                                "name": "050",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "051",
+                                "size": 1939
+                            },
+                            {
+                                "name": "052",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "053",
+                                "size": 1939
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Contas receber",
+                        "children": [
+                            {
+                                "name": "044",
+                                "size": 4500
+                            }
+                            ,
+                            {
+                                "name": "040",
+                                "size": 4501
+                            }
+                            ,
+                            {
+                                "name": "048",
+                                "size": 4502
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Caixa",
+                "children": [
+                    {
+                        "name": "Pago",
+                        "children": [
+                            {
+                                "name": "045",
+                                "size": 7000
+                            }
+                            ,
+                            {
+                                "name": "015",
+                                "size": 9000
+                            }
+                            ,
+                            {
+                                "name": "025",
+                                "size": 8000
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Recebido",
+                        "children": [
+                            {
+                                "name": "046",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Renda Variável",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "ATMP1",
+                                "size": 721
+                            },
+                            {
+                                "name": "ATMP3 (1)",
+                                "size": 4294
+                            },
+                            {
+                                "name": "ATMP5",
+                                "size": 9800
+                            },
+                            {
+                                "name": "ATPR3",
+                                "size": 1314
+                            },
+                            {
+                                "name": "FTM DEPOSITO PN",
+                                "size": 2220
+                            },
+                            {
+                                "name": "FTM4 PN",
+                                "size": 2220.66
+                            },
+                            {
+                                "name": "FTM5",
+                                "size": 2220
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Opções",
+                        "children": [
+                            {
+                                "name": "AELP3OP AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "AELP3OP AMP2",
+                                "size": 4294
+                            },
+                            {
+                                "name": "EMBR3OP AMP",
+                                "size": 229800
+                            },
+                            {
+                                "name": "EMBR3OP AMP2",
+                                "size": 13014
+                            },
+                            {
+                                "name": "IBOV CAL A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV CAL A06",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A06",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Termo",
+                        "children": [
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 4294
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Empréstimo Ações",
+                        "children": [
+                            {
+                                "name": "Tomador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 721
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1b",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1c",
+                                        "size": 54294
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Doador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 7210
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATPR3",
+                                        "Cód.Mov.": "210",
+                                        "Corretora": "BRADESCO",
+                                        "DataMovimento": "06/01/2011",
+                                        "DataVencimento": "20/01/2011",
+                                        "QuantidadeEmpréstimo": 1000,
+                                        "QuantidadeProventos": 0,
+                                        "Preço": 26.72,
+                                        "ValordoEmpréstimo": 243152.00,
+                                        "%Remun.": "2.356 %",
+                                        "%Comissão": "1.256 %",
+                                        "ApropriaçãoRemun.": 0,
+                                        "ApropriaçãoComissão": 0,
+                                        "Rep.Liquid.": 0,
+                                        "Total": 0,
+                                        "ValordeMercado": 42151.00,
+                                        "size": 4294
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+
+    ,
+    {
+        "name": "Carteira Teste5",
+        "children": [
+            {
+                "name": "Renda Fixa",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "FTM CRI SERIE 130",
+                                "size": 23938
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Compromissada",
+                        "children": [
+                            {
+                                "name": "COMP PÓS",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CPR",
+                "children": [
+                    {
+                        "name": "Contas pagar",
+                        "children": [
+                            {
+                                "name": "043",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "047",
+                                "size": 1939
+                            },
+                            {
+                                "name": "048",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "049",
+                                "size": 1939
+                            }
+                            ,
+                            {
+                                "name": "050",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "051",
+                                "size": 1939
+                            },
+                            {
+                                "name": "052",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "053",
+                                "size": 1939
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Contas receber",
+                        "children": [
+                            {
+                                "name": "044",
+                                "size": 4500
+                            }
+                            ,
+                            {
+                                "name": "040",
+                                "size": 4501
+                            }
+                            ,
+                            {
+                                "name": "048",
+                                "size": 4502
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Caixa",
+                "children": [
+                    {
+                        "name": "Pago",
+                        "children": [
+                            {
+                                "name": "045",
+                                "size": 7000
+                            }
+                            ,
+                            {
+                                "name": "015",
+                                "size": 9000
+                            }
+                            ,
+                            {
+                                "name": "025",
+                                "size": 8000
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Recebido",
+                        "children": [
+                            {
+                                "name": "046",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Renda Variável",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "ATMP1",
+                                "size": 721
+                            },
+                            {
+                                "name": "ATMP3 (1)",
+                                "size": 4294
+                            },
+                            {
+                                "name": "ATMP5",
+                                "size": 9800
+                            },
+                            {
+                                "name": "ATPR3",
+                                "size": 1314
+                            },
+                            {
+                                "name": "FTM DEPOSITO PN",
+                                "size": 2220
+                            },
+                            {
+                                "name": "FTM4 PN",
+                                "size": 2220.66
+                            },
+                            {
+                                "name": "FTM5",
+                                "size": 2220
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Opções",
+                        "children": [
+                            {
+                                "name": "AELP3OP AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "AELP3OP AMP2",
+                                "size": 4294
+                            },
+                            {
+                                "name": "EMBR3OP AMP",
+                                "size": 9800
+                            },
+                            {
+                                "name": "EMBR3OP AMP2",
+                                "size": 1314
+                            },
+                            {
+                                "name": "IBOV CAL A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV CAL A06",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A06",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Termo",
+                        "children": [
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 4294
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Empréstimo Ações",
+                        "children": [
+                            {
+                                "name": "Tomador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 721
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1b",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1c",
+                                        "size": 4294
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Doador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 7210
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATPR3",
+                                        "Cód.Mov.": "210",
+                                        "Corretora": "BRADESCO",
+                                        "DataMovimento": "06/01/2011",
+                                        "DataVencimento": "20/01/2011",
+                                        "QuantidadeEmpréstimo": 9100,
+                                        "QuantidadeProventos": 0,
+                                        "Preço": 26.72,
+                                        "ValordoEmpréstimo": 243152.00,
+                                        "%Remun.": "2.356 %",
+                                        "%Comissão": "1.256 %",
+                                        "ApropriaçãoRemun.": 0,
+                                        "ApropriaçãoComissão": 0,
+                                        "Rep.Liquid.": 0,
+                                        "Total": 0,
+                                        "ValordeMercado": 42151.00,
+                                        "size": 4294
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+
+    ,
+    {
+        "name": "Carteira Teste6",
+        "children": [
+            {
+                "name": "Renda Fixa",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "FTM CRI SERIE 130",
+                                "size": 23938
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Compromissada",
+                        "children": [
+                            {
+                                "name": "COMP PÓS",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CPR",
+                "children": [
+                    {
+                        "name": "Contas pagar",
+                        "children": [
+                            {
+                                "name": "043",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "047",
+                                "size": 1939
+                            },
+                            {
+                                "name": "048",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "049",
+                                "size": 1939
+                            }
+                            ,
+                            {
+                                "name": "050",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "051",
+                                "size": 1939
+                            },
+                            {
+                                "name": "052",
+                                "size": 1938
+                            }
+                            ,
+                            {
+                                "name": "053",
+                                "size": 1939
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Contas receber",
+                        "children": [
+                            {
+                                "name": "044",
+                                "size": 4500
+                            }
+                            ,
+                            {
+                                "name": "040",
+                                "size": 4501
+                            }
+                            ,
+                            {
+                                "name": "048",
+                                "size": 4502
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Caixa",
+                "children": [
+                    {
+                        "name": "Pago",
+                        "children": [
+                            {
+                                "name": "045",
+                                "size": 7000
+                            }
+                            ,
+                            {
+                                "name": "015",
+                                "size": 9000
+                            }
+                            ,
+                            {
+                                "name": "025",
+                                "size": 8000
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Recebido",
+                        "children": [
+                            {
+                                "name": "046",
+                                "size": 13534
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Renda Variável",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "ATMP1",
+                                "size": 721
+                            },
+                            {
+                                "name": "ATMP3 (1)",
+                                "size": 4294
+                            },
+                            {
+                                "name": "ATMP5",
+                                "size": 9800
+                            },
+                            {
+                                "name": "ATPR3",
+                                "size": 1314
+                            },
+                            {
+                                "name": "FTM DEPOSITO PN",
+                                "size": 2220
+                            },
+                            {
+                                "name": "FTM4 PN",
+                                "size": 2220.66
+                            },
+                            {
+                                "name": "FTM5",
+                                "size": 2220
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Opções",
+                        "children": [
+                            {
+                                "name": "AELP3OP AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "AELP3OP AMP2",
+                                "size": 4294
+                            },
+                            {
+                                "name": "EMBR3OP AMP",
+                                "size": 9800
+                            },
+                            {
+                                "name": "EMBR3OP AMP2",
+                                "size": 1314
+                            },
+                            {
+                                "name": "IBOV CAL A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV CAL A06",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A05",
+                                "size": 2220
+                            },
+                            {
+                                "name": "IBOV PUT A06",
+                                "size": 2220
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Termo",
+                        "children": [
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 721
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 4294
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Empréstimo Ações",
+                        "children": [
+                            {
+                                "name": "Tomador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 72001
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1b",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1c",
+                                        "size": 4294
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Doador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 7210
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATMP1",
+                                        "size": 4294
+                                    },
+                                    {
+                                        "name": "ATPR3",
+                                        "Cód.Mov.": "210",
+                                        "Corretora": "BRADESCO",
+                                        "DataMovimento": "06/01/2011",
+                                        "DataVencimento": "20/01/2011",
+                                        "QuantidadeEmpréstimo": 9100,
+                                        "QuantidadeProventos": 0,
+                                        "Preço": 26.72,
+                                        "ValordoEmpréstimo": 243152.00,
+                                        "%Remun.": "2.356 %",
+                                        "%Comissão": "1.256 %",
+                                        "ApropriaçãoRemun.": 0,
+                                        "ApropriaçãoComissão": 0,
+                                        "Rep.Liquid.": 0,
+                                        "Total": 0,
+                                        "ValordeMercado": 42151.00,
+                                        "size": 4294
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+
+]

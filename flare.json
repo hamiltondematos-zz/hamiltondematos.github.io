@@ -1,0 +1,115 @@
+{
+    "name": "Carteira TESTE DESENVOLVEDOR",
+    "children": [
+        {
+            "name": "Renda Fixa",
+            "children": [
+                {
+                    "name": "À Vista",
+                    "children": [
+                        {
+                            "name": "FTM CRI SERIE 130",
+                            "size": 3938
+                        }
+                    ]
+                },
+                {
+                    "name": "Compromissada",
+                    "children": [
+                        {
+                            "name": "COMP PÓS",
+                            "size": 3534
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Renda Variável",
+            "children": [
+                {
+                    "name": "Á Vista",
+                    "children": [
+                        {
+                            "name": "ATMP1",
+                            "size": 721
+                        },
+                        {
+                            "name": "ATMP3 (1)",
+                            "size": 4294
+                        },
+                        {
+                            "name": "ATMP5",
+                            "size": 9800
+                        },
+                        {
+                            "name": "ATPR3",
+                            "size": 1314
+                        },
+                        {
+                            "name": "FTM DEPOSITO PN",
+                            "size": 2220
+                        },
+                        {
+                            "name": "FTM4 PN",
+                            "size": 2220
+                        },
+                        {
+                            "name": "FTM5",
+                            "size": 2220
+                        },
+                        {
+                            "name": "VALE3 AMP",
+                            "size": 2220
+                        }
+                    ]
+                },
+                {
+                    "name": "Opções",
+                    "children": [
+                        {
+                            "name": "AELP3OP AMP",
+                            "size": 721
+                        },
+                        {
+                            "name": "AELP3OP AMP",
+                            "size": 4294
+                        },
+                        {
+                            "name": "EMBR3OP AMP",
+                            "size": 9800
+                        },
+                        {
+                            "name": "EMBR3OP AMP",
+                            "size": 1314
+                        },
+                        {
+                            "name": "IBOV CAL A05",
+                            "size": 2220
+                        },
+                        {
+                            "name": "IBOV CAL A06",
+                            "size": 2220
+                        },
+                        {
+                            "name": "IBOV PUT A05",
+                            "size": 2220
+                        },
+                        {
+                            "name": "IBOV PUT A06",
+                            "size": 2220
+                        }
+                    ]
+                },
+                {
+                    "name": "Termo",
+                    "size": 2165
+                },
+                {
+                    "name": "Empréstimo de Ações",
+                    "size": 586
+                }
+            ]
+        }
+    ]
+}

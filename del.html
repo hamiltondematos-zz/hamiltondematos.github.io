@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a="http://www.ymf.com.br/amplis"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:r="http://richfaces.org/rich" template="reportPage.xhtml">
+
+    <ui:define name="mainPanelReport">
+
+
+        <style>
+            #vis {
+                font-family: Arial;
+            }
+
+            text {
+                font: 11px Arial;
+                cursor: pointer;
+            }
+
+            .tableFont {
+                font: 15px Arial;
+                cursor: pointer;
+                border-collapse: collapse;
+                position: fixed;
+                margin-left: 80px;
+                margin-top: 200px;
+            }
+
+            p#intro {
+                text-align: center;
+                margin: 1em 0;
+            }
+
+            path {
+                stroke: #fff;
+                stroke-width: 0.3;
+                cursor: pointer;
+            }
+
+            #legend {
+                padding: 10px 0 0 3px;
+            }
+
+            #sequence text, #legend text {
+                fill: #fff;
+            }
+
+            #vis {
+                margin-left: 70px;
+                margin-top: -20px;
+            }
+
+            #sequence {
+                width: 600px;
+                height: 70px;
+                margin-left: 20px;
+            }
+
+            h3 {
+                font-weight: normal;
+                font-family: "Arial";
+            }
+
+            .filterButtons {
+                text-align: center;
+                vertical-align: middle;
+                line-height: 50px;
+                font-family: "Arial";
+                font-weight: normal;
+                font-size: 14px;
+                margin-left: 920px;
+            }
+
+            .filterButtons:hover {
+                opacity: 0.75;
+            }
+
+            .carteirasTitle {
+                font-family: "Arial";
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            #accordionFiltros {
+                /*                 display: none; */
+
+            }
+
+            .header-accordion {
+                background-color: rgb(249, 249, 249) !important;
+                padding: 5px 5px 5px 15px;
+            }
+
+            #accordionFiltros {
+                margin-top: -10px;
+            }
+
+            .header-accordion>div.row {
+                height: 45px;
+                margin-top: -15px;
+                margin-bottom: -15px;
+            }
+
+            .header-accordion>div.row>a.viewHeader>div.col-md-8>h4 {
+                padding-top: 15px;
+                height: 45px;
+            }
+
+            .header-accordion:hover {
+                background: rgba(0, 0, 0, 0.05) !important;
+            }
+
+            .filtrosHeader, .viewHeader {
+                text-decoration: none !important;
+            }
+        </style>
+
+
+
+        <!-- Filtros -->
+        <div class="panel-group" id="accordionFiltros" role="tablist"
+             aria-multiselectable="true">
+
+            <div class="panel panel-default">
+                <a data-toggle="collapse" data-parent="#accordionFiltros"
+                   href="#collapseOne" aria-expanded="true"
+                   aria-controls="collapseOne" class="filtrosHeader viewHeader">
+                    <div class="panel-heading header-accordion" role="tab"
+                         id="headingOne">
+                        <h4 class="panel-title" style="font-size: 14px">Filtros</h4>
+                    </div>
+                </a>
+                <div id="collapseOne" class="panel-collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+
+
+                        <h:panelGrid columns="2" cellpadding="3" cellspacing="3"
+                                     columnClasses="coluna_panelGrid130">
+                            <h:outputText id="period_outputText" styleClass="lbl_basic"
+                                          value="#{bundle.period}" />
+                            <a:dateRange viewMode="#{bean.viewMode}"
+                                         dateBegin="#{bean.patrimonioFilterBean.filtroRelatorioVO.dataInicial}"
+                                         reRenderDateBegin="portfolioPanel calendarDateEnd messagePanel"
+                                         dateEnd="#{bean.patrimonioFilterBean.filtroRelatorioVO.dataFinal}"
+                                         reRenderDateEnd="portfolioPanel calendarDateBegin messagePanel" />
+
+                            <h:outputText id="positionType_outputText" styleClass="lbl_basic"
+                                          value="#{bundle.positionType}" />
+                            <a:comboBox id="headerValuePositionType" disabled=""
+                                        value="#{bean.patrimonioFilterBean.filtroRelatorioVO.tipoPosicaoProcessamentoSelecionada}"
+                                        styleClass="form-control" labelId="positionType_outputText">
+                                <f:selectItems id="EvaluationSituationEnumSelectItems"
+                                               value="#{EvaluationSituationEnum}" />
+                                <a4j:ajax
+                                    listener="#{bean.patrimonioFilterBean.evaluationSituationOnChange}"
+                                    event="change" render="portfolioPanel" />
+                            </a:comboBox>
+
+                            <h:outputText id="tipoDeConsolidacaoOutputText"
+                                          styleClass="lbl_basic" value="#{bundle.tipoDeConsolidacao}" />
+                            <a:comboBox id="tipoDeConsolidacao" disabled=""
+                                        value="#{bean.param.tipoConsolidacaoPosicao}"
+                                        styleClass="form-control" labelId="tipoDeConsolidacaoOutputText">
+                                <f:selectItems id="TipoDeConsolidacaoOutputTextSelectItems"
+                                               value="#{bean.tiposDeConsolidacaoPosicao}" />
+                            </a:comboBox>
+
+                            <h:outputText id="tipoCustoMedioOutputText"
+                                          styleClass="lbl_basic" value="#{bundle.custoMedio}" />
+                            <a:comboBox id="tipoCustoMedio"
+                                        value="#{bean.param.corretagemCustoMedio}"
+                                        styleClass="form-control" labelId="tipoCustoMedioOutputText">
+                                <f:selectItems id="tipoCustoMedioOutputTextSelectItems"
+                                               value="#{CorretagemCustoMedioEnum}" />
+                            </a:comboBox>
+
+                        </h:panelGrid>
+                        <a4j:outputPanel id="portfolioPanel">
+                            <h:panelGrid columns="2" cellpadding="3" cellspacing="3"
+                                         columnClasses="coluna_panelGrid130">
+                                <h:column>
+                                    <h:outputText id="portfolioGroup_OutputText"
+                                                  styleClass="lbl_basic" value="#{bundle.portfolioGroup}" />
+                                </h:column>
+                                <h:column>
+                                    <a:portfolioGroupPanel id="idPortfolioGroup"
+                                                           beanName="#{bean.patrimonioFilterBean}"
+                                                           okAction="portfolioGroupChange" rendered="true"
+                                                           render="portfolioPanel" disabled="#{bean.editMode}" />
+                                </h:column>
+                                <h:column>
+                                    <h:outputText id="portfolioPickList_OutputText"
+                                                  styleClass="lbl_basic" value="#{bundle.portfolio}" />
+                                </h:column>
+                                <h:column>
+                                    <a:pickList id="portfolioPickList"
+                                                converter="ymf.HibernateEntityConverter"
+                                                styleSelectManyListbox="width: 220px; height: 120px;"
+                                                sourceCollection="#{bean.patrimonioFilterBean.portfolioList}"
+                                                value="#{bean.patrimonioFilterBean.filtroRelatorioVO.carteirasSelecionadas}"
+                                                required="true" labelId="portfolioPickList_OutputText" />
+                                </h:column>
+                            </h:panelGrid>
+
+                        </a4j:outputPanel>
+
+                        <h:panelGrid columns="1" cellpadding="0" cellspacing="0">
+                            <h:column>
+                                <fieldset class="fieldset" style="width: 640px;">
+                                    <legend class="lbl_basic"> #{bundle.configuracoes} </legend>
+
+                                    <h:panelGrid columns="2" cellpadding="3" cellspacing="3"
+                                                 columnClasses="coluna_panelGrid130">
+
+                                        <h:outputText id="tipoRelatorio_label" styleClass="lbl_basic"
+                                                      value="#{bundle.tipo}" />
+                                        <a:comboBox id="tipoRelatorio" disabled="false"
+                                                    value="#{bean.paramBean.parametro.tipoRelatorioCpr}"
+                                                    style=" width: 160px" styleClass="form-control"
+                                                    labelId="tipoRelatorio_label">
+                                            <f:selectItems id="tipoSelectItems"
+                                                           value="#{bean.paramBean.tiposRelatorio}" />
+                                        </a:comboBox>
+
+
+                                        <h:outputText id="saidaLabel" styleClass="lbl_basic"
+                                                      value="#{bundle.saida}" />
+                                        <a:comboBox id="saida" disabled="false"
+                                                    value="#{bean.param.formato}" style=" width: 160px"
+                                                    styleClass="form-control" labelId="saidaLabel">
+                                            <f:selectItems id="saidaSelectItems"
+                                                           value="#{ReportFormatEnum}" />
+                                        </a:comboBox>
+
+                                        <h:outputText id="reportIdiom_label" styleClass="lbl_basic"
+                                                      value="#{bundle.idioma}" />
+                                        <a:comboBox id="reportIdiom" disabled="true"
+                                                    value="#{bean.param.idioma}" style=" width: 160px"
+                                                    styleClass="form-control" labelId="reportIdiom_label">
+                                            <f:selectItems id="reportIdiomSelectItems"
+                                                           value="#{ReportIdiomEnum}" />
+                                        </a:comboBox>
+
+                                        <h:outputText id="conversaoMoedasLabel" styleClass="lbl_basic"
+                                                      value="#{bundle.conversaoMoedas}" />
+                                        <a:comboBox id="conversaoMoedas"
+                                                    value="#{bean.param.conversaoMoedas}"
+                                                    labelId="conversaoMoedasLabel">
+                                            <f:selectItems id="conversaoMoedasSelectItems"
+                                                           value="#{YesOrNoEnum}" />
+                                            <a4j:ajax event="change"
+                                                      listener="#{bean.onchangeConversaoMoedas}"
+                                                      render="moedaPanel usaParidadePadrao moedaCarteira" />
+                                        </a:comboBox>
+
+                                        <h:outputText id="moedaCarteiraLabel" styleClass="lbl_basic"
+                                                      value="#{bundle.moedaCarteira}" />
+                                        <a:comboBox id="moedaCarteira"
+                                                    disabled="#{!bean.param.conversaoMoedas}"
+                                                    value="#{bean.moedaCarteira}" labelId="moedaCarteiraLabel">
+                                            <f:selectItems id="moedaCarteiraSelectItems"
+                                                           value="#{YesOrNoEnum}" />
+                                            <a4j:ajax event="change"
+                                                      listener="#{bean.onchangeMoedaCarteira}" render="moedaPanel" />
+                                        </a:comboBox>
+
+                                        <h:outputText id="moedaLabel" styleClass="lbl_basic"
+                                                      value="#{bundle.moeda}" />
+                                        <a4j:outputPanel id="moedaPanel">
+                                            <a:comboBox
+                                                required="#{bean.param.conversaoMoedas and !bean.moedaCarteira}"
+                                                id="moeda"
+                                                disabled="#{!bean.param.conversaoMoedas or bean.moedaCarteira}"
+                                                value="#{bean.param.moeda}" labelId="moedaLabel">
+                                                <f:selectItems id="moedaSelectItems"
+                                                               value="#{bean.currencies}" />
+                                            </a:comboBox>
+                                        </a4j:outputPanel>
+
+                                        <h:outputText id="usaParidadePadraoLabel"
+                                                      styleClass="lbl_basic" value="#{bundle.usaParidadePadrao}" />
+                                        <a:comboBox id="usaParidadePadrao"
+                                                    disabled="#{!bean.param.conversaoMoedas}"
+                                                    value="#{bean.param.usaParidadePadrao}"
+                                                    labelId="usaParidadePadraoLabel">
+                                            <f:selectItems id="usaParidadePadraoSelectItems"
+                                                           value="#{YesOrNoEnum}" />
+                                        </a:comboBox>
+
+                                        <h:outputText id="segregarTipoCompanhiaOutputText"
+                                                      styleClass="lbl_basic"
+                                                      value="#{bundle.segregarTipoCompanhia}" />
+                                        <a:comboBox id="segregarTipoCompanhia"
+                                                    value="#{bean.param.segregarTipoCompanhia}"
+                                                    styleClass="form-control"
+                                                    labelId="segregarTipoCompanhiaOutputText">
+                                            <f:selectItems
+                                                id="segregarTipoCompanhiaOutputTextSelectItems"
+                                                value="#{YesOrNoEnum}" />
+                                        </a:comboBox>
+
+                                    </h:panelGrid>
+
+                                </fieldset>
+                            </h:column>
+                        </h:panelGrid>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /Filtros -->
+
+        <!-- Visualizacao 		 -->
+        <div id="sequence"></div>
+
+        <div id="filterButtons"></div>
+
+        <div id="vis"></div>
+
+        <script src="../scripts/d3/d3.v3.min.js" type="text/javascript"></script>
+
+        <script src="../scripts/d3/sunburst.js" type="text/javascript"></script>
+        <!-- /Visualizacao 		 -->
+
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>AMPLIS visualização de carteiras diárias</title>
+<meta name="description" content="AMPLIS visualização de carteiras diárias.">
+
+<!--<script src="js/libs/jquery/jquery.min.js" type="text/javascript"></script>-->
+<link href="scripts/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+
+    body{
+        background-image: url('images/fundoRM.png');
+        background-repeat: no-repeat;
+    }
+
+
+
+    .node circle {
+        stroke-width: 1.5px;        
+    }
+
+    g.node:hover text{
+        font-size: 13px;
+        font-weight: bold;
+        transition: 0.15s;
+    }
+
+    g.node:hover circle {        
+        transition: 0.15s;
+        opacity: 0.6;
+    }
+
+    g path.link:hover {        
+        transition: 0.15s;
+        opacity: 0.6;
+    }
+
+    .link {
+        fill: none;
+        stroke-linecap: round;        
+    }
+
+    #sequence {
+        width: 600px;
+        height: 70px;
+        margin-top: 100px;
+
+    }
+
+    text {
+        font: 11px Roboto;
+        cursor: default;
+    }
+
+    /*    #container{
+            margin-left: 50px;
+        }*/
+
+
+    div.tooltip {           
+        text-align: center;           
+        width: 150px;                  
+        height: 60px;                 
+        padding: 10px;             
+        font: 12px Arial;        
+        background: #DFE5E9;   
+        border: 0px;      
+        border-radius: 4px;           
+        pointer-events: none;                    
+/*        -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;*/
+    }
+
+
+</style>
+
+
+<body>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css"/>
+
+    <script src="//d3js.org/d3.v3.min.js"></script>
+
+    <div class="container-fluid" id="collapsibleId"
+         style="margin-top: 50px; margin-left: 50px">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+
+                        <div id="sequence"></div>
+
+                        <div id="vis"></div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div id="filterButtons"></div>
+                        <div id="viewButtons"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="collapsibleScript">
+
+
+        var div = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+
+
+
+        var temp;
+        var color = d3.scale.category20c();
+
+        var sequenceWidth = 800;
+        var b = {
+            w: 140, h: 30, s: 3, t: 10
+        };
+
+        var margin = {top: 180, right: 120, bottom: 20, left: 180},
+        width = 1200 - margin.right - margin.left,
+                height = 900;
+
+        var totalSize = 0;
+
+        var i = 0,
+                duration = 350,
+                root;
+
+        var tree = d3.layout.tree()
+                .size([height, width]);
+
+        var diagonal = d3.svg.diagonal()
+                .projection(function (d) {
+                    return [d.y, d.x];
+                });
+
+        var svg = d3.select("#vis").append("svg")
+                .attr("id", "container")
+                .attr("width", width + margin.right + margin.left)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                //.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr("transform", "translate(120,0)");
+
+        initializeBreadcrumbTrail();
+
+        d3.json("scripts/d3/carteiras.json", function (error, flare) {
+            if (error)
+                throw error;
+
+            root = flare[0]; // TODO specify the index
+
+            root.x0 = height / 2;
+            root.y0 = 0;
+
+            function collapse(d) {
+                if (d.children) {
+                    d._children = d.children;
+                    d._children.forEach(collapse);
+                    d.children = null;
+                }
+            }
+
+            //root.children.forEach(collapse);
+            updateCollapsible(root);
+        });
+
+        d3.select(self.frameElement).style("height", "800px");
+
+
+        //
+        function updateCollapsible(source) {
+
+            // Compute the new tree layout.
+//            var nodes = tree.nodes(root).reverse(),
+//                    links = tree.links(nodes);
+
+            var partition = d3.layout.partition()
+                    .size([width, height])
+                    .value(function (d) {
+                        return d.size;
+                    })
+                    .children(function (d) {
+                        return d.children;
+                    })
+                    //optional: this is the default, change as needed
+                    .sort(null);
+
+            var nodes = partition(root);
+
+            var links = tree.links(tree.nodes(root));//partition.links(nodes);
+
+
+
+            // Normalize for fixed-depth.
+            nodes.forEach(function (d) {
+                d.y = d.depth * 180;
+            });
+
+            // Update the nodes…
+            var node = svg.selectAll("g.node")
+                    .data(nodes, function (d) {
+                        return d.id || (d.id = ++i);
+                    });
+
+            // Enter any new nodes at the parent's previous position.
+            var nodeEnter = node.enter().append("g")
+                    .attr("class", "node")
+                    .attr("height", "300px")
+                    .attr("transform", function (d) {
+                        return "translate(" + source.y0 + "," + source.x0 + ")";
+                    })
+                    .on("mouseover", mouseoverCollapsible);
+            // .on("mouseleave", mouseleaveCollapsible)
+            //   .on("click", clickCollapsible);
+            totalSize = node.node().__data__.value;
+            d3.select("#container").on("mouseleave", mouseleaveCollapsible);
+//svg.selectAll("g").data(nodes);
+
+            nodeEnter.append("circle")
+                    .attr("r", 1e-6)
+                    .style("fill", function (d) {
+                        return d._children ? "lightsteelblue" : "#fff";
+                    })
+                    ;
+
+            nodeEnter.append("text")
+                    .attr("x", function (d) {
+                        return d.children || d._children ? -10 : 10;
+                    })
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", function (d) {
+                        return d.children || d._children ? "end" : "start";
+                    })
+                    .text(function (d) {
+                        return d.name;//d.children || d._children ? d.name : d.name + ' [R' + d3.format("$,.2f")(d.size) + ']';
+                    })
+                    .style("fill-opacity", 1e-6);
+
+
+            // Transition nodes to their new position.
+            var nodeUpdate = node.transition()
+                    .duration(duration)
+                    .attr("transform", function (d) {
+                        return "translate(" + d.y + "," + d.x + ")";
+                    });
+
+            var currentNodeValue;
+            nodeUpdate.select("circle")
+                    //.attr("r", 4.5)
+                    .attr("r", function (d) {
+                        if (d.parent === undefined) {
+                            currentNodeValue = 50 * d.value / totalSize;
+                        } else {
+                            currentNodeValue = (100 * d.value / totalSize).toPrecision(3);
+                        }
+                        return currentNodeValue;
+                    })
+                    .attr("opacity", function (d) {
+                        if (d.parent === undefined) {
+                            return 0.1;
+                        } else {
+                            return 0.6;
+                        }
+                    })
+//                    .attr("opacity", 0.8)
+                    .style("fill", function (d) {
+                        return color(d.name);
+                        //d._children ? "lightsteelblue" : "#fff";
+                    })
+                    ;
+
+            nodeUpdate.select("text")
+                    .style("fill-opacity", 1);
+
+            // Transition exiting nodes to the parent's new position.
+            var nodeExit = node.exit().transition()
+                    .duration(duration)
+                    .attr("transform", function (d) {
+                        return "translate(" + source.y + "," + source.x + ")";
+                    })
+                    .remove();
+
+            nodeExit.select("circle")
+                    .attr("r", 1e-6);
+
+            nodeExit.select("text")
+                    .style("fill-opacity", 1e-6);
+
+            // Update the links…
+            var link = svg.selectAll("path.link")
+                    .data(links, function (d) {
+                        return d.target.id;
+                    });
+
+            // Enter any new links at the parent's previous position.
+            link.enter().insert("path", "g")
+                    .attr("stroke-width", function (d) {
+                        return d.target.value * 0.00107;
+                    })
+                    .attr("stroke", function (d) {
+                        return color(d.target.name);
+                    })
+                    .attr("opacity", 0.5)
+                    .attr("class", "link")
+                    .attr("d", function (d) {
+                        var o = {x: source.x0, y: source.y0};
+                        return diagonal({source: o, target: o});
+                    });
+
+            // Transition links to their new position.
+            link.transition()
+                    .duration(duration)
+                    .attr("opacity", 0.5)
+                    .attr("d", diagonal);
+
+            // Transition exiting nodes to the parent's new position.
+            link.exit().transition()
+                    .duration(duration)
+                    .attr("opacity", 0.5)
+                    .attr("d", function (d) {
+                        var o = {x: source.x, y: source.y};
+                        return diagonal({source: o, target: o});
+                    })
+                    .remove();
+
+            // Stash the old positions for transition.
+            nodes.forEach(function (d) {
+                d.x0 = d.x;
+                d.y0 = d.y;
+            });
+            //  totalSize = node.node().__data__.value;
+
+        }
+
+        // Toggle children on clickCollapsible.
+//        function clickCollapsible(d) {
+//            temp = d;
+//
+//            if (d.children) {
+//                d._children = d.children;
+//                d.children = null;
+//            } else {
+//                d.children = d._children;
+//                d._children = null;
+//            }
+//
+//
+//            updateCollapsible(d);
+//        }
+
+        function mouseoverCollapsible(d) {
+            temp = d;
+
+            updateCollapsible(d);
+
+            //if (d.children === undefined) {
+            var percentage = d3.format("$,.2f")(d.value);
+
+            var percentageString = "R" + percentage;
+
+            var sequenceArray = getAncestors(d);
+
+            updateBreadcrumbs(sequenceArray, percentageString);
+
+            div.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+
+            div.html(
+                    "<strong>"
+                    + d.name
+                    + "</strong>"
+                    + "<br/>"
+                    + ((100 * d.value / totalSize).toPrecision(3)) + "%"
+                    + "<br/>"
+                    + percentageString)
+                    .style("left", (d3.event.pageX) + 10 + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+
+        }
+
+        function mouseleaveCollapsible(d) {
+
+            // Hide the breadcrumb trail
+            d3.select("#trail")
+                    .style("visibility", "hidden");
+
+            // Deactivate all segments during transition.
+            d3.selectAll("path").on("mouseover", null);
+
+            d3.selectAll("#valoresItemSub").remove();
+
+            div.transition()
+                    .duration(200)
+                    .style("opacity", 0);
+        }
+
+        function breadcrumbPoints(d, i) {
+            var points = [];
+            points.push("0,0");
+            points.push(b.w + ",0");
+            points.push(b.w + b.t + "," + (b.h / 2));
+            points.push(b.w + "," + b.h);
+            points.push("0," + b.h);
+            if (i > 0) { // Leftmost breadcrumb; don't include 6th vertex.
+                points.push(b.t + "," + (b.h / 2));
+            }
+            return points.join(" ");
+        }
+
+        function getAncestors(node) {
+            var path = [];
+            var current = node;
+            while (current.parent) {
+                path.unshift(current);
+                current = current.parent;
+            }
+            return path;
+        }
+
+        function initializeBreadcrumbTrail() {
+            // Add the svg area.
+            var trail = d3.select("#sequence").append("svg:svg")
+                    .attr("width", sequenceWidth)
+                    .attr("height", 50)
+                    .attr("id", "trail");
+            // Add the label at the end, for the percentage.
+            trail.append("svg:text")
+                    .attr("id", "endlabel")
+                    .style("fill", "#000");
+        }
+
+        function updateBreadcrumbs(nodeArray, percentageString) {
+
+            // console.log('updating com ' + percentageString);
+
+            // Data join; key function combines name and depth (= position in sequence).
+            var g = d3.select("#trail")
+                    .selectAll("g")
+                    .data(nodeArray, function (d) {
+                        return d.name + d.depth;
+                    });
+
+            // Add breadcrumb and label for entering nodes.
+            var entering = g.enter().append("svg:g");
+
+
+            entering.append("svg:polygon")
+                    .attr("points", breadcrumbPoints)
+                    .style("fill", function (d) {
+                        return color(d.name);
+                    })
+                    ;
+
+            entering.append("svg:text")
+                    .attr("x", (b.w + b.t) / 2)
+                    .attr("y", b.h / 2)
+                    .attr("dy", "0.35em")
+                    .attr("text-anchor", "middle")
+                    .style("fill", function (d) {
+                        return brightness(d3.rgb(color(d.name))) < 125 ? "#eee" : "#000";
+                    })
+                    .text(function (d) {
+                        return d.name;
+                    });
+
+            // Set position for entering and updating nodes.
+            g.attr("transform", function (d, i) {
+                return "translate(" + i * (b.w + b.s) + ", 0)";
+            });
+
+            // Remove exiting nodes.
+            g.exit().remove();
+
+            // Now move and update the percentage at the end.
+            d3.select("#trail").select("#endlabel")
+                    .attr("x", (nodeArray.length + 0.5) * (b.w + b.s))
+                    .attr("y", b.h / 2)
+                    .attr("dy", "0.35em")
+                    .attr("text-anchor", "middle")
+                    .text(percentageString);
+
+
+            // Make the breadcrumb trail visible, if it's hidden.
+            d3.select("#trail")
+                    .style("visibility", "");
+
+        }
+
+        function brightness(rgb) {
+            return rgb.r * .299 + rgb.g * .587 + rgb.b * .114;
+        }
+
+
+    </script>
+
+</body>

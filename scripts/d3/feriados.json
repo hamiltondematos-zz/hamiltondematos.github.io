@@ -1,0 +1,37 @@
+[
+    {
+        "category": "Bolsa",
+        "date": "01/01/2012",
+        "description": "Feriado bla"
+    }
+    ,
+    {
+        "category": "Bancário/Bolsa",
+        "date": "03/01/2012",
+        "description": "Feriado ble"
+    }
+    ,
+    {
+        "category": "Bancário/Bolsa (Outros países)",
+        "date": "04/01/2012",
+        "description": "Feriado ble"
+    }
+    ,
+    {
+        "category": "Bancário/Bolsa (Outros países)",
+        "date": "20/01/2012",
+        "description": "Feriado ble"
+    }
+    ,
+    {
+        "category": "Bancário/Bolsa (Outros países)",
+        "date": "23/01/2012",
+        "description": "Feriado ble"
+    }
+    ,
+    {
+        "category": "Bolsa",
+        "date": "28/01/2012",
+        "description": "Feriado ble"
+    }
+]

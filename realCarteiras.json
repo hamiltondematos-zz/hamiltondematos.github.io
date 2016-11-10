@@ -1,0 +1,181 @@
+
+[
+    {
+        "name": "TESTE2 DESENV",
+        "children": [
+            {
+                "name": "Renda Fixa",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "CRI",
+                                "children": [
+                                    {
+                                        "name": "FTM CRI SERIE 130 fake",
+                                        "size": 447536.47
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Compromissada",
+                        "children": [
+                            {
+                                "name": "COMP PÓS",
+                                "size": 4665424.66
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Renda Variável",
+                "children": [
+                    {
+                        "name": "À Vista",
+                        "children": [
+                            {
+                                "name": "ATMP1",
+                                "size": 540183.00
+                            },
+                            {
+                                "name": "ATMP3 (1)",
+                                "size": 125067.00
+                            },
+                            {
+                                "name": "ATMP5",
+                                "size": 319320.00
+                            },
+                            {
+                                "name": "ATPR3",
+                                "size": 162321.00
+                            },
+                            {
+                                "name": "FTM DEPOSITO PN",
+                                "size": 480500.00
+                            },
+                            {
+                                "name": "FTM4 PN",
+                                "size": 2622311.67
+                            },
+                            {
+                                "name": "FTM5",
+                                "size": 4248485.85
+                            },
+                            {
+                                "name": "VALE3 AMP (negativo)",
+                                "size": 175320.00
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Opções",
+                        "children": [
+                            {
+                                "name": "AELP3OP AMP",
+                                "size": 418000.00
+                            },
+                            {
+                                "name": "AELP3OP AMP",
+                                "size": 656430.00
+                            },
+                            {
+                                "name": "EMBR3OP AMP",
+                                "size": 194000.00
+                            },
+                            {
+                                "name": "EMBR3OP AMP",
+                                "size": 17460.00
+                            },
+                            {
+                                "name": "IBOV CAL A05",
+                                "size": 289000.00
+                            },
+                            {
+                                "name": "IBOV CAL A06",
+                                "size": 2470230.00
+                            },
+                            {
+                                "name": "IBOV PUT A05",
+                                "size": 3520500.00
+                            },
+                            {
+                                "name": "IBOV PUT A06",
+                                "size": 4234700.00
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Termo",
+                        "children": [
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 3694.70
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 280000.00
+                            },
+                            {
+                                "name": "VALE3 AMP",
+                                "size": 159507.09
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Empréstimo Ações",
+                        "children": [
+                            {
+                                "name": "Tomador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1) neg",
+                                        "size": 266100.00
+                                    },
+                                    {
+                                        "name": "ATMP5 neg",
+                                        "size": 665250.00
+                                    },
+                                    {
+                                        "name": "ATMP1 neg",
+                                        "size": 864825.00
+                                    },
+                                    {
+                                        "name": "ATPR3",
+                                        "size": 404472.00
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Doador",
+                                "children": [
+                                    {
+                                        "name": "ATMP3 (1)",
+                                        "size": 141033.00
+                                    },
+                                    {
+                                        "name": "ATMP5",
+                                        "size": 345930.00
+                                    },
+                                    {
+                                        "name": "ATMP1",
+                                        "size": 324642.00
+                                    },
+                                    {
+                                        "name": "ATPR3",
+                                        "size": 242151.00
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+
+]

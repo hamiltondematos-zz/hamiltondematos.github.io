@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>AMPLIS visualização de carteiras diárias</title>
+<meta name="description" content="AMPLIS visualização de carteiras diárias.">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<style>
+
+    .carteirasTitle{
+        font-family: "Arial";
+        font-weight: bold; 
+        font-size: 18px;
+    }
+    
+    body{
+        background-color: #DFE5E9;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+    tr:nth-child(odd){background-color: white}
+
+    #vis{
+        font-family: Arial;		
+    }
+
+    div.tooltip {	
+        position: absolute;			
+        text-align: center;			
+        width: 130px;					
+        height: 28px;					
+        padding: 10px;				
+        font: 12px Arial;		
+        background: lightsteelblue;	
+        border: 1px solid gray;		
+        border-radius: 3px;			
+        pointer-events: none;			
+    }
+
+    text {
+        font: 11px Arial;
+        cursor: pointer;
+    }
+
+    .tableFont {
+        font: 15px Arial;
+        cursor: pointer;
+        border-collapse: collapse;
+        /*width: 100%;*/
+        position: fixed;
+        margin-left: 80px;
+        margin-top: 200px;
+
+    }
+
+    /*    body {
+            width: 880px;
+            margin: 0 auto;
+        }*/
+
+    h1 {
+        text-align: center;
+        margin: .5em 0;
+    }
+
+    p#intro {
+        text-align: center;
+        margin: 1em 0;
+    }
+
+    body{
+        background-image: url('fundo.png');
+        background-repeat: no-repeat;
+    }
+
+    /*    svg{
+            margin-top: 40px;
+            margin-left: 180px;
+        }*/
+
+    path {
+        stroke: #fff;
+        stroke-width: 0.3;
+        cursor: pointer;
+    }
+
+
+
+    #legend {
+        padding: 10px 0 0 3px;
+    }
+
+    #sequence text, #legend text {
+        /*        font-weight: 600;*/
+        fill: #fff;
+    }
+
+    #vis{
+        margin-left: 120px;
+        margin-top: -20px;
+    }
+
+    #sequence {
+        width: 600px;
+        height: 70px;
+        margin-top: 160px;
+        margin-left: 100px;
+
+    }
+
+    h3{
+        font-weight: normal;
+        font-family: "Arial";
+    }
+
+    .filterButtons{
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px; 
+        font-family: "Arial";
+        font-weight: normal; 
+        font-size: 14px;
+    }
+
+    .filterButtons:hover {
+        opacity: 0.75;
+    }
+</style>
+
+<div id="sequence"></div>
+
+<div id="filterButtons"></div>
+
+<div id="vis">
+
+    <!--    <h3 style="                        
+            position: fixed;
+            margin-top: 00px;
+            margin-left: 880px;  
+            font-weight: normal;
+            ">Carteiras</h3>-->
+
+    <!--    <button onclick="filtraCarteiras(0, 1)" style="
+                width: 200px;
+                height: 50px;
+                position: fixed;
+                margin-top: 40px;
+                margin-left: 880px;
+                border: 0;
+                background-color: #6BAED6;
+                ">TESTE2 DESENV</button>
+    
+        <button onclick="filtraCarteiras(1, 2)" style="
+                margin-top: 50px;
+                width: 200px;
+                height: 50px;
+                position: fixed;
+                margin-top: 100px;
+                margin-left: 880px;
+                background-color: #74C476;
+                border: 0;
+                ">Carteira Teste</button>-->
+
+</div>
+
+<script src="d3.v3.min.js" type="text/javascript"></script>
+<script src="sunburst.js" type="text/javascript"></script>
+
+<!--
+<script>
+    if (top != self)
+        top.location.replace(location);
+</script>-->

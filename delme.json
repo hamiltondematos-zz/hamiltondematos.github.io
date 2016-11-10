@@ -1,0 +1,58 @@
+[
+    {
+        "name": "QA-CODIGO TESTE",
+        "children": [{
+                "name": "Renda Fixa",
+                "children": [{
+                        "name": null,
+                        "size": "653698.50"
+                    }]
+            }, {
+                "name": "Renda Variavel",
+                "children": [{
+                        "name": "A Vista",
+                        "children": [{
+                                "name": "ACES3",
+                                "size": "172608.80"
+                            }, {
+                                "name": "AMBV3",
+                                "size": "299300.40"
+                            }]
+                    }]
+            }, {
+                "name": "CPR",
+                "children": [{
+                        "name": "063",
+                        "size": "(461370.61)"
+                    }]
+            }]
+    }, {
+        "name": "UNT-S E-FINAN USA",
+        "children": [{
+                "name": "Renda Fixa",
+                "children": [{
+                        "name": null,
+                        "size": "653698.50"
+                    }]
+            }, {
+                "name": "Renda Variavel",
+                "children": [{
+                        "name": "A Vista",
+                        "children": [{
+                                "name": "ACES3",
+                                "size": "172608.80"
+                            }, {
+                                "name": "AMBV3",
+                                "size": "299300.40"
+                            }]
+                    }]
+            }, {
+                "name": "CPR",
+                "children": [{
+                        "name": "063",
+                        "size": "(461370.61)"
+                    }]
+            }
+        ]
+    }
+]

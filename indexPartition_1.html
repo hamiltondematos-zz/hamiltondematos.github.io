@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>AMPLIS visualização de carteiras diárias</title>
+<meta name="description" content="AMPLIS visualização de carteiras diárias.">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+
+    body{
+        background-image: url('fundo.png');
+        background-repeat: no-repeat;
+    }
+
+
+
+    .chart {
+        display: block;
+        margin: auto;
+        margin-top: 0px;
+        font-size: 11px;     
+        font-family: Arial;		
+
+    }
+
+    rect {
+        stroke-width: 0.3;
+        stroke: #eee;
+        fill: #aaa;
+        fill-opacity: .8;
+    }
+
+    rect.parent {
+        cursor: pointer;
+        fill: steelblue;
+    }
+
+    text {
+        pointer-events: none;
+    }
+
+
+    /*    svg{
+            margin-top: 130px;
+            margin-left: -30px;
+        }*/
+
+    #sequence {
+        width: 600px;
+        height: 70px;
+        margin-top: 60px;
+        margin-left: 100px;
+
+    }
+
+    #legend {
+        padding: 10px 0 0 3px;
+    }
+
+    #sequence text, #legend text {
+        /*        font-weight: 600;*/
+        fill: #fff;
+    }
+
+    text {
+        font: 11px Arial;
+        cursor: pointer;
+    }
+
+</style>
+
+<body>
+
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+
+    <div id="sequence"></div>
+
+    <div id="vis"></div>
+
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script>
+        var vis;
+        var width = 700,
+                sequenceWidth = 800;
+        var totalSize = 0;
+
+        var b = {
+            w: 140, h: 30, s: 3, t: 10
+        };
+
+        var color = d3.scale.category20c();
+
+        var w = 1120,
+                h = 600,
+                x = d3.scale.linear().range([0, w]),
+                y = d3.scale.linear().range([0, h]);
+
+
+
+        d3.json("scripts/d3/carteiras.json", function (error, root) {
+            if (error) {
+                console.log(error);
+                root = "";
+            }
+
+            if (root.length === 0) {
+                return;
+            }
+
+            var fullJson = root;
+            fullJson.forEach(function (r) {
+                // initializeBreadcrumbTrail();        
+                vis = d3.select("#vis").append("div")
+                        .attr("class", "chart")
+                        .style("width", w + "px")
+                        .style("height", h + "px")
+                        .append("svg:svg")
+                        .attr("width", w)
+                        .attr("height", h);
+
+
+                var trail = d3.select("#sequence").append("svg:svg")
+                        .attr("width", sequenceWidth)
+                        .attr("height", 50)
+                        .attr("id", "trail");
+                // Add the label at the end, for the percentage.
+                trail.append("svg:text")
+                        .attr("id", "endlabel")
+                        .style("fill", "#000");
+
+
+                var partition = d3.layout.partition()
+                        .value(function (d) {
+                            return d.size;
+                        });
+
+                var g = vis.selectAll("g")
+                        .data(partition.nodes(r))
+                        .enter().append("svg:g")
+                        .attr("transform", function (d) {
+                            return "translate(" + x(d.y) + "," + y(d.x) + ")";
+                        })
+                        .on("click", click)
+                        .on("mouseover", mouseover)
+                        .on("mouseleave", mouseleaveG);
+
+                d3.select("#vis > .chart > svg").on("mouseleave", mouseleave);
+
+                var kx = w / r.dx,
+                        ky = h / 1;
+
+                g.append("svg:rect")
+                        .attr("width", r.dy * kx)
+                        .attr("height", function (d) {
+                            return d.dx * ky;
+                        })
+                        .attr("class", function (d) {
+                            return d.children ? "parent" : "child";
+                        })
+                        .style("fill", function (d) {
+                            //if (d.children) {
+                            return color(d.name);
+                            //} else {
+                            //    return "lightgray";
+                            //}
+
+                        });
+
+                g.append("svg:text")
+                        .attr("transform", transform)
+                        .attr("dy", ".35em")
+                        .style("opacity", function (d) {
+                            return d.dx * ky > 12 ? 1 : 0;
+                        })
+                        .text(function (d) {
+                            return d.name;
+                        })
+                        .style("fill", function (d) {
+                            if (!d.children) {
+                                return "#333333";
+                            }
+                            return brightness(d3.rgb(color(d.name))) < 125 ? "#eee" : "#000";
+                        })
+                        .style("font-size", function (d) {
+                            if (!d.children) {
+                                var hei = (d.dx * ky) * 0.5;
+                                return hei > 11 ? 11 : hei;
+                            }
+
+                        });
+
+                g.append("svg:text")
+                        .attr("transform", transform)
+                        .attr("class", "percentage")
+                        .style("visibility", "hidden")
+                        .attr("dy", ".35em")
+                        .attr("dx", r.dy * kx * 0.75)
+                        .style("opacity", function (d) {
+                            return d.dx * ky > 12 ? 1 : 0;
+                        })
+                        .text(function (d) {
+                            var roundTwo = (d.dx * ky * 100 / h);
+                            roundTwo = parseFloat(Math.round(roundTwo * 100) / 100).toFixed(2);
+                            return roundTwo + '%';
+                        })
+                        .style("fill", function (d) {
+                            if (!d.children) {
+                                return "#333333";
+                            }
+                            return brightness(d3.rgb(color(d.name))) < 125 ? "#eee" : "#000";
+                        })
+                        .style("font-size", function (d) {
+                            if (!d.children) {
+                                var hei = (d.dx * ky) * 0.5;
+                                return hei > 11 ? 11 : hei;
+                            }
+
+                        });
+
+                d3.select(window)
+                        .on("click", function () {
+                            click(r);
+                        });
+
+
+                function click(d) {
+
+                    //d3.selectAll("g").style("pointer-events", "none");  
+                    //d3.select(window).unbind('mousemove')
+
+                    if (!d.children)
+                        return;
+
+                    kx = (d.y ? w - 40 : w) / (1 - d.y);
+                    ky = h / d.dx;
+                    x.domain([d.y, 1]).range([d.y ? 40 : 0, w]);
+                    y.domain([d.x, d.x + d.dx]);
+
+                    var t = g
+                            .transition()
+                            .duration(500)//d3.event.altKey ? 7500 : 750)
+                            .attr("transform", function (d) {
+                                return "translate(" + x(d.y) + "," + y(d.x) + ")";
+                            })
+                            ;
+
+                    t.select("rect")
+                            .attr("width", d.dy * kx)
+                            .attr("height", function (d) {
+                                return d.dx * ky;
+                            });
+
+                    t.select(".percentage")
+                            .attr("transform", transform);
+
+                    t.select("text")
+                            .attr("transform", transform)
+                            .style("opacity", function (d) {
+                                return d.dx * ky > 12 ? 1 : 0;
+                            }).style("font-size", function (d) {
+                        if (!d.children) {
+                            var hei = (d.dx * ky) * 0.5;
+                            return hei > 11 ? 11 : hei;
+                        }
+
+                    });
+
+                    d3.event.stopPropagation();
+                }
+
+                function transform(d) {
+
+                    return "translate(8," + d.dx * ky / 2 + ")";
+                }
+            });
+
+
+        });
+
+        function brightness(rgb) {
+            return rgb.r * .299 + rgb.g * .587 + rgb.b * .114;
+        }
+
+//        function initializeBreadcrumbTrail() {
+//            // Add the svg area.
+//            
+//            var trail = d3.select("#sequence").append("svg:svg")
+//                    .attr("width", sequenceWidth)
+//                    .attr("height", 50)
+//                    .attr("id", "trail");
+//            // Add the label at the end, for the percentage.
+//            trail.append("svg:text")
+//                    .attr("id", "endlabel")
+//                    .style("fill", "#000");
+//        }
+
+        function getAncestors(node) {
+            var path = [];
+            var current = node;
+            while (current.parent) {
+                path.unshift(current);
+                current = current.parent;
+            }
+            return path;
+        }
+
+        function breadcrumbPoints(d, i) {
+            var points = [];
+            points.push("0,0");
+            points.push(b.w + ",0");
+            points.push(b.w + b.t + "," + (b.h / 2));
+            points.push(b.w + "," + b.h);
+            points.push("0," + b.h);
+            if (i > 0) { // Leftmost breadcrumb; don't include 6th vertex.
+                points.push(b.t + "," + (b.h / 2));
+            }
+            return points.join(" ");
+        }
+        function updateBreadcrumbs(nodeArray, percentageString) {
+
+            // Data join; key function combines name and depth (= position in sequence).
+            var g = d3.select("#trail")
+                    .selectAll("g")
+                    .data(nodeArray, function (d) {
+                        return d.name + d.depth;
+                    });
+
+            // Add breadcrumb and label for entering nodes.
+            var entering = g.enter().append("svg:g");
+
+
+            entering.append("svg:polygon")
+                    .attr("points", breadcrumbPoints)
+                    .style("fill", function (d) {
+                        return color(d.name);
+                    })
+                    ;
+
+            entering.append("svg:text")
+                    .attr("x", (b.w + b.t) / 2)
+                    .attr("y", b.h / 2)
+                    .attr("dy", "0.35em")
+                    .attr("text-anchor", "middle")
+                    .style("fill", function (d) {
+                        return brightness(d3.rgb(color(d.name))) < 125 ? "#eee" : "#000";
+                    })
+                    .text(function (d) {
+                        return d.name;
+                    });
+
+            // Set position for entering and updating nodes.
+            g.attr("transform", function (d, i) {
+                return "translate(" + i * (b.w + b.s) + ", 0)";
+            });
+
+            // Remove exiting nodes.
+            g.exit().remove();
+
+            // Now move and update the percentage at the end.
+            d3.select("#trail").select("#endlabel")
+                    .attr("x", (nodeArray.length + 0.5) * (b.w + b.s))
+                    .attr("y", b.h / 2)
+                    .attr("dy", "0.35em")
+                    .attr("text-anchor", "middle")
+                    .text(percentageString);
+
+            // Make the breadcrumb trail visible, if it's hidden.
+            d3.select("#trail")
+                    .style("visibility", "");
+
+        }
+        function mouseover(d) {
+            var percentage = d3.format("$,.2f")(d.value);
+
+            var percentageString = "R" + percentage;
+            if (percentage < 0.1) {
+                percentageString = "< 0.1%";
+            }
+
+            var sequenceArray = getAncestors(d);
+
+            updateBreadcrumbs(sequenceArray, percentageString);
+
+            // Fade all the segments.
+            d3.selectAll("rect, #vis text")
+                    .style("opacity", 0.2);
+
+            // Then highlight only those that are an ancestor of the current segment.
+            d3.selectAll("rect, #vis text")
+                    .filter(function (node) {
+                        return (sequenceArray.indexOf(node) >= 0) || !node.parent;
+                    })
+                    .style("opacity", 1);
+
+//            d3.selectAll(".percentage")
+//                    .filter(function (node) {
+//                        return (sequenceArray.indexOf(node) >= 0) || !node.parent;
+//                    })
+//                    .transition()
+//                    .duration(300)
+//                    .style("visibility", "visible")
+//                    .each("end", function () {
+//                        d3.select(this).on("mouseover", mouseover);
+//                    });
+
+        }
+
+        function mouseleaveG(d) {
+            d3.selectAll(".percentage")
+                    .transition()
+                    .duration(300)
+                    .style("visibility", "hidden")
+                    .each("end", function () {
+                        d3.select(this).on("mouseover", mouseover);
+                    });
+        }
+        function mouseleave(d) {
+
+            d3.select("#trail")
+                    .style("visibility", "hidden");
+
+            // Deactivate all segments during transition.
+            d3.selectAll("rect").on("mouseover", null);
+
+            // Transition each segment to full opacity and then reactivate it.
+            d3.selectAll("rect")
+                    .transition()
+                    .duration(300)
+                    .style("opacity", 1)
+                    .each("end", function () {
+                        d3.select(this).on("mouseover", mouseover);
+                    });
+
+            d3.selectAll("text")
+                    .transition()
+                    .duration(300)
+                    .style("opacity", 1)
+                    .each("end", function () {
+                        d3.select(this).on("mouseover", mouseover);
+                    });
+
+            d3.selectAll("#valoresItemSub").remove();
+
+        }
+    </script>
+
+</body>
