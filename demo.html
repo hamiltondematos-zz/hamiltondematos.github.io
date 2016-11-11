@@ -69,11 +69,14 @@
         border: 0px;      
         border-radius: 4px;           
         pointer-events: none;                    
-/*        -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-        box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;*/
+        /*        -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+                -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+                box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;*/
     }
 
+    .list-group > a:hover{
+        text-decoration: none;
+    }
 
 </style>
 
@@ -124,7 +127,7 @@
         };
 
         var margin = {top: 180, right: 120, bottom: 20, left: 180},
-        width = 1200 - margin.right - margin.left,
+                width = 1200 - margin.right - margin.left,
                 height = 900;
 
         var totalSize = 0;
@@ -502,4 +505,26 @@
 
     </script>
 
+    <div class="container footer" style="width: 700px; padding-bottom: 20px">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"  onclick="location.href = 'demo.html'">Home</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" onclick="location.href = 'indexSunburst.html'">Sunburst</button>                      
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" onclick="location.href = 'indexPartition.html'">Partition</button>           
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"  onclick="location.href = 'indexCollapsible.html'">Collapsible</button>            
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"  onclick="location.href = 'indexHorzBars.html'">Horizontal bars</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"  onclick="location.href = 'index.html#/3'">Apresentação</button>
+            </div>
+        </div>
+    </div>
 </body>

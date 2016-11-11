@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <title>AMPLIS visualização de carteiras diárias</title>
 <meta name="description" content="AMPLIS visualização de carteiras diárias.">
-
+<link href="scripts/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
 
@@ -17,8 +17,8 @@
     }
 
     .node circle {
-/*        fill: #fff;
-        stroke: steelblue;*/
+        /*        fill: #fff;
+                stroke: steelblue;*/
         stroke-width: 1.5px;
     }
 
@@ -57,7 +57,7 @@
 </style>
 
 <body>
-    <button onclick="expandAll()">all</button>
+    <!--    <button onclick="expandAll()">all</button>-->
 
     <div id="sequence" ></div>
 
@@ -74,7 +74,7 @@
         };
 
         var margin = {top: 180, right: 120, bottom: 20, left: 180},
-        width = 1200 - margin.right - margin.left,
+                width = 1200 - margin.right - margin.left,
                 height = 900;
 
         var totalSize = 0;
@@ -422,5 +422,26 @@
         }
 
     </script>
-
+    <div class="container footer" style="width: 700px; padding-bottom: 20px">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"  onclick="location.href = 'demo.html'">Home</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" onclick="location.href = 'indexSunburst.html'">Sunburst</button>                      
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" onclick="location.href = 'indexPartition.html'">Partition</button>           
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"  onclick="location.href = 'indexCollapsible.html'">Collapsible</button>            
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"  onclick="location.href = 'indexHorzBars.html'">Horizontal bars</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"  onclick="location.href = 'index.html#/3'">Apresentação</button>
+            </div>
+        </div>
+    </div>
 </body>
